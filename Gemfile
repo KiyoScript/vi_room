@@ -70,3 +70,5 @@ group :test do
   gem "selenium-webdriver"
 
 end
+# CSS Framework
+gem "bootstrap", "~> 5.3"
