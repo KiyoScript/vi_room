@@ -72,3 +72,6 @@ group :test do
 end
 # CSS Framework
 gem "bootstrap", "~> 5.3"
+
+# Bootstrap Icon Helper
+gem 'bootstrap-icons-helper'
