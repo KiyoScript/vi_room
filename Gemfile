@@ -75,3 +75,6 @@ gem "bootstrap", "~> 5.3"
 
 # Bootstrap Icon Helper
 gem 'bootstrap-icons-helper'
+
+# Account Authentication
+gem "devise", "~> 4.9"

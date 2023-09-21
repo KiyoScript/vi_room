@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>ViRoom</title>
+    <title>Vi Room</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= csrf_meta_tags %>
@@ -12,18 +12,22 @@
   </head>
 
   <body>
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-lg-1 col-md-1 col-2 bg-dark vh-100">
-          <%= render partial: 'layouts/sidenav'%>
-        </div>
-        <div class="col-lg-11 col-md-11 col-10">
-          <%= render partial: 'layouts/navbar'%>
-          <div class="container-fluid">
-              <%= yield %>
+    <div class="container-fluid vh-100">
+      <% unless user_signed_in? %>
+        <%= yield %>
+      <% else %>
+        <div class="row">
+          <div class="col-lg-1 col-md-1 col-2 bg-dark vh-100">
+            <%= render partial: 'layouts/sidenav'%>
+          </div>
+          <div class="col-lg-11 col-md-11 col-10">
+            <%= render partial: 'layouts/navbar'%>
+            <div class="container-fluid">
+                <%= yield %>
+            </div>
           </div>
         </div>
-      </div>
+      <% end %>
     </div>
   </body>
 </html>

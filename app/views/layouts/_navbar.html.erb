@@ -24,7 +24,7 @@
           </a>
         </li>
         <li class="nav-item d-flex align-items-center border border-3 ms-0 ms-lg-4 border-end-0 border-top-0 border-bottom-0">
-          <p class="fw-normal mb-0 ms-4 text-primary" style="font-size: .8rem">Johnlloyd.desape@evsu.edu.ph</p>
+          <p class="fw-normal mb-0 ms-4 text-primary" style="font-size: .8rem"><%= current_user.email %></p>
         </li>
         <li class="nav-item dropdown">
           <a href="#" class="nav-link" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -51,10 +51,10 @@
             </li>
             <hr class="dropdown-divider">
             <li>
-              <a class="dropdown-item" href="#">
-                <%= bootstrap_icon 'box-arrow-right', width: '1.2rem', height: '1.2rem'%>
+            <%= link_to destroy_user_session_path, method: :delete, class: 'dropdown-item', data: { turbo_method: :delete } do %>
+                <%= bootstrap_icon 'box-arrow-right', width: '1.2rem', height: '1.2rem' %>
                 Logout
-              </a>
+            <% end %>
             </li>
           </ul>
         </li>
