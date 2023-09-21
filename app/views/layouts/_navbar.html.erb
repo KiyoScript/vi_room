@@ -1,0 +1,64 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light shadow">
+  <div class="container-fluid justify-content-end">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse mt-2 mt-sm-2 mt-md-2" id="navbarSupportedContent">
+      <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search for..." aria-label="Search">
+        <button class="btn btn-primary" type="submit">
+          <%= bootstrap_icon 'search', width: '1.2rem', height: '1.2rem', class: 'text-white'%>
+        </button>
+      </form>
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <%= bootstrap_icon 'bell-fill', width: '1.2rem', height: '1.2rem', class: 'text-primary'%>
+            <sup class="badge bg-secondary rounded-pill">2</sup>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <%= bootstrap_icon 'envelope-fill', width: '1.2rem', height: '1.2rem', class: 'text-primary'%>
+            <sup class="badge bg-secondary rounded-pill">5</sup>
+          </a>
+        </li>
+        <li class="nav-item d-flex align-items-center border border-3 ms-0 ms-lg-4 border-end-0 border-top-0 border-bottom-0">
+          <p class="fw-normal mb-0 ms-4 text-primary" style="font-size: .8rem">Johnlloyd.desape@evsu.edu.ph</p>
+        </li>
+        <li class="nav-item dropdown">
+          <a href="#" class="nav-link" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="https://github.com/mdo.png" alt="mdo" width="24" height="24" class="rounded-circle">
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end text-small shadow" aria-labelledby="navbarDropdown">
+            <li>
+              <a class="dropdown-item" href="#">
+                <%= bootstrap_icon 'person', width: '1.2rem', height: '1.2rem'%>
+                Profile
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="#">
+                <%= bootstrap_icon 'gear-wide', width: '1.2rem', height: '1.2rem'%>
+                Settings
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="#">
+                <%= bootstrap_icon 'list-task', width: '1.2rem', height: '1.2rem'%>
+                Activity Log
+              </a>
+            </li>
+            <hr class="dropdown-divider">
+            <li>
+              <a class="dropdown-item" href="#">
+                <%= bootstrap_icon 'box-arrow-right', width: '1.2rem', height: '1.2rem'%>
+                Logout
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
