@@ -1,0 +1,10 @@
+<div class="z-3 position-absolute top-0 end-0 p-3 mt-5 ms-5">
+  <% flash.each do |type, message| %>
+    <div class="toast show bg-<%= type == 'alert' ? 'danger' : 'success' %> bg-opacity-75" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="5000">
+      <div class="toast-body text-white d-flex justify-content-between">
+        <%= message %>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+    </div>
+  <% end %>
+</div>
