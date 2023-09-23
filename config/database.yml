@@ -84,4 +84,4 @@ production:
 #  database: vi_room_production
 #  username: vi_room
 #  password: <%= ENV["VI_ROOM_DATABASE_PASSWORD"] %>
-  url: <%= ENV["DATABASE_URL"] %>
+  url: <%= ENV['DATABASE_URL'] %>
