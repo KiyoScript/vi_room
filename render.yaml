@@ -1,5 +1,5 @@
 databases:
-  - name: vi-room-staging
+  - name: vi_room_db
     databaseName: vi_room_db
     user: vi_room_db
 
