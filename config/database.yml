@@ -81,6 +81,7 @@ test:
 #
 production:
   <<: *default
-  database: vi_room_production
-  username: vi_room
-  password: <%= ENV["VI_ROOM_DATABASE_PASSWORD"] %>
+#  database: vi_room_production
+#  username: vi_room
+#  password: <%= ENV["VI_ROOM_DATABASE_PASSWORD"] %>
+  url: <%= ENV["DATABASE_URL"] %>
