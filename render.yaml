@@ -10,7 +10,7 @@ services:
     ipAllowList: []
     maxmemoryPolicy: noeviction
   - type: web
-    name: vi-room-staging
+    name: viroom-staging
     runtime: ruby
     buildCommand: "./bin/render-build.sh"
     startCommand: "./bin/dev"
