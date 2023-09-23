@@ -1,0 +1,29 @@
+databases:
+  - name: vi-room-staging
+    databaseName: vi_room_db
+    user: vi_room_db
+
+services:
+  - type: redis
+    name: redis-server
+    plan: free
+    ipAllowList: []
+    maxmemoryPolicy: noeviction
+  - type: web
+    name: vi-room-staging
+    runtime: ruby
+    buildCommand: "./bin/render-build.sh"
+    startCommand: "./bin/dev"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: vi-room-staging
+          property: connectionString
+      - key: RAILS_MASTER_KEY
+        sync: false
+      - key: REDIS_URL
+        fromService:
+          type: redis
+          name: redis-server
+          property: connectionString
+
