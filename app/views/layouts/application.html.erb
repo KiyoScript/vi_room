@@ -16,21 +16,21 @@
       <div class="position-relative">
         <%= render partial: 'layouts/flash_messages'%>
 
-        <%# unless user_signed_in? %>
-          <%#= yield %>
-        <%# else %>
+        <% unless user_signed_in? %>
+          <%= yield %>
+        <% else %>
           <div class="row">
             <div class="col-lg-1 col-md-1 col-2 bg-dark vh-100">
               <%= render partial: 'layouts/sidenav'%>
             </div>
             <div class="col-lg-11 col-md-11 col-10">
-              <%#= render partial: 'layouts/navbar'%>
+              <%= render partial: 'layouts/navbar'%>
               <div class="container-fluid">
                   <%= yield %>
               </div>
             </div>
           </div>
-        <%# end %>
+        <% end %>
       </div>
     </div>
   </body>
