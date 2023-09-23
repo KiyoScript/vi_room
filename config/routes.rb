@@ -3,9 +3,9 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
 
-  devise_for :users, controllers: {
-    sessions: 'users/sessions'
-  }
+  # devise_for :users, controllers: {
+  #   sessions: 'users/sessions'
+  # }
 
   root "dashboard#index"
 end
