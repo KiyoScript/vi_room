@@ -1,64 +1,160 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light shadow">
-  <div class="container-fluid justify-content-end">
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse mt-2 mt-sm-2 mt-md-2" id="navbarSupportedContent">
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search for..." aria-label="Search">
-        <button class="btn btn-primary" type="submit">
-          <%= bootstrap_icon 'search', width: '1.2rem', height: '1.2rem', class: 'text-white'%>
-        </button>
-      </form>
-      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link" href="#">
-            <%= bootstrap_icon 'bell-fill', width: '1.2rem', height: '1.2rem', class: 'text-primary'%>
-            <sup class="badge bg-secondary rounded-pill">2</sup>
+<nav class="navbar navbar-expand-lg navbar-light shadow">
+  <div class="container-fluid d-flex w-100 justify-content-lg-end flex-nowrap">
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+      <div class="offcanvas-header bg-primary">
+        <div class="Profile d-flex flex-row align-items-center justify-content-center flex-wrap">
+          <a href="#" class="offcanvas-title" id="offcanvasNavbarLabel" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <img src="https://avatars.githubusercontent.com/u/121840912?v=4" alt="mdo" width="30" height="30" class="rounded-circle">
           </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">
-            <%= bootstrap_icon 'envelope-fill', width: '1.2rem', height: '1.2rem', class: 'text-primary'%>
-            <sup class="badge bg-secondary rounded-pill">5</sup>
-          </a>
-        </li>
-        <li class="nav-item d-flex align-items-center border border-3 ms-0 ms-lg-4 border-end-0 border-top-0 border-bottom-0">
-          <p class="fw-normal mb-0 ms-4 text-primary" style="font-size: .8rem"><%= current_user.email %></p>
-        </li>
-        <li class="nav-item dropdown">
-          <a href="#" class="nav-link" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <img src="https://github.com/mdo.png" alt="mdo" width="24" height="24" class="rounded-circle">
-          </a>
-          <ul class="dropdown-menu dropdown-menu-end text-small shadow" aria-labelledby="navbarDropdown">
-            <li>
-              <a class="dropdown-item" href="#">
-                <%= bootstrap_icon 'person', width: '1.2rem', height: '1.2rem'%>
-                Profile
+          <p class="fw-normal mb-0 ms-2 ms-lg-4 text-white"><%= current_user.email %></p>
+        </div>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body d-flex flex-column flex-lg-row justify-content-between bg-white bg-sm-dark">
+        <form class="d-flex flex-row d-none d-lg-flex">
+          <input class="form-control me-2" type="search" placeholder="Search for..." aria-label="Search">
+          <button class="btn btn-primary" type="submit">
+            <%= bootstrap_icon 'search', width: '1.2rem', height: '1.2rem', class: 'text-white'%>
+          </button>
+        </form>
+        <ul class="navbar-nav d-none d-lg-flex">
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <%= bootstrap_icon 'bell-fill', width: '1.2rem', height: '1.2rem', class: 'text-primary'%>
+              <sup class="badge bg-secondary rounded-pill">2</sup>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <%= bootstrap_icon 'chat-fill', width: '1.2rem', height: '1.2rem', class: 'text-primary'%>
+              <sup class="badge bg-secondary rounded-pill">5</sup>
+            </a>
+          </li>
+          <li class="nav-item d-flex align-items-center border border-3 ms-0 ms-lg-4 border-end-0 border-top-0 border-bottom-0">
+            <p class="fw-normal mb-0 ms-2 ms-lg-4 text-primary" style="font-size: .8rem"><%= current_user.email %></p>
+          </li>
+          <li class="nav-item dropdown">
+            <a href="#" class="nav-link" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <img src="https://avatars.githubusercontent.com/u/121840912?v=4" alt="mdo" width="30" height="30" class="rounded-circle">
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end text-small shadow" aria-labelledby="navbarDropdown">
+              <li>
+                <a class="dropdown-item" href="#">
+                  <%= bootstrap_icon 'person', width: '1.2rem', height: '1.2rem'%>
+                  Profile
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="#">
+                  <%= bootstrap_icon 'gear-wide', width: '1.2rem', height: '1.2rem'%>
+                  Settings
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="#">
+                  <%= bootstrap_icon 'list-task', width: '1.2rem', height: '1.2rem'%>
+                  Activity Log
+                </a>
+              </li>
+              <hr class="dropdown-divider">
+              <li>
+                <%= link_to destroy_user_session_path, method: :delete, class: 'dropdown-item', data: { turbo_method: :delete } do %>
+                  <%= bootstrap_icon 'box-arrow-right', width: '1.2rem', height: '1.2rem' %>
+                  Logout
+                <% end %>
+              </li>
+            </ul>
+          </li>
+        </ul>
+
+        <ul class="list-group d-flex d-lg-none">
+          <li class="list-group-item d-flex justify-content-between align-items-start border-0">
+            <div class="ms-2 me-auto d-flex align-items-center">
+              <div class="div-emoji">😴</div>
+              <div class="fw-bold ms-2 text-dark">Status</div>
+            </div>
+          </li>
+          <hr>
+          <li class="list-group-item d-flex justify-content-between align-items-start border-0">
+            <div class="ms-2 me-auto d-flex align-items-center">
+              <%= bootstrap_icon 'person-fill', width: '1.2rem', height: '1.2rem', class: 'text-primary'%>
+              <div class="fw-normal ms-2 text-dark">Profile</div>
+            </div>
+          </li>
+           <li class="list-group-item d-flex justify-content-between align-items-start border-0">
+            <div class="ms-2 me-auto d-flex align-items-center">
+              <%= bootstrap_icon 'gear-fill', width: '1.2rem', height: '1.2rem', class: 'text-primary'%>
+              <div class="fw-normal ms-2 text-dark">Settings</div>
+            </div>
+            <span class="badge bg-primary rounded-pill">4</span>
+          </li>
+          <hr>
+          <li class="list-group-item d-flex justify-content-between align-items-start border-0">
+            <div class="ms-2 me-auto d-flex align-items-center">
+              <%= bootstrap_icon 'bell-fill', width: '1.2rem', height: '1.2rem', class: 'text-primary'%>
+              <div class="fw-normal ms-2 text-dark">Notification</div>
+            </div>
+            <span class="badge bg-primary rounded-pill">2</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-start border-0">
+            <div class="ms-2 me-auto d-flex align-items-center">
+              <%= bootstrap_icon 'chat-fill', width: '1.2rem', height: '1.2rem', class: 'text-primary'%>
+              <div class="fw-normal ms-2 text-dark">Message</div>
+            </div>
+            <span class="badge bg-primary rounded-pill">5</span>
+          </li>
+          <hr>
+          <li class="list-group-item d-flex justify-content-between align-items-start border-0">
+            <div class="ms-2 me-auto d-flex align-items-center">
+              <%= bootstrap_icon 'speedometer2', width: '1.2rem', height: '1.2rem', class: 'text-primary'%>
+              <div class="fw-normal ms-2 text-dark">Dashboard</div>
+            </div>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-start border-0">
+            <div class="btn-group dropright" role="group" aria-label="Button group with nested dropdown ms-4">
+              <a href='#' id="btnGroupDrop2" type="button" class="nav-link text-light ms-2" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <%= bootstrap_icon 'person-rolodex', width: '1.2rem', height: '1.2rem', class: 'text-primary'%>
+                <span class="fw-normal ms-2 text-dark">Classes</span>
               </a>
-            </li>
-            <li>
-              <a class="dropdown-item" href="#">
-                <%= bootstrap_icon 'gear-wide', width: '1.2rem', height: '1.2rem'%>
-                Settings
+              <div class="dropdown-menu" aria-labelledby="btnGroupDrop2">
+                <p class='ms-3 fw-bold mb-2 text-primary' style="font-size: .7rem;">START</p>
+                <a class="dropdown-item" href="#">Create Classes/Metric Manager</a>
+                <a class="dropdown-item" href="#">My Classes</a>
+              </div>
+            </div>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-start border-0">
+            <div class="btn-group dropright" role="group" aria-label="Button group with nested dropdown ms-4">
+              <a href='#' id="btnGroupDrop2" type="button" class="nav-link text-light ms-2" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <%= bootstrap_icon 'folder-fill', width: '1.2rem', height: '1.2rem', class: 'text-primary'%>
+                <span class="fw-normal ms-2 text-dark">Reports</span>
               </a>
-            </li>
-            <li>
-              <a class="dropdown-item" href="#">
-                <%= bootstrap_icon 'list-task', width: '1.2rem', height: '1.2rem'%>
-                Activity Log
-              </a>
-            </li>
-            <hr class="dropdown-divider">
-            <li>
-            <%= link_to destroy_user_session_path, method: :delete, class: 'dropdown-item', data: { turbo_method: :delete } do %>
-                <%= bootstrap_icon 'box-arrow-right', width: '1.2rem', height: '1.2rem' %>
-                Logout
+              <div class="dropdown-menu" aria-labelledby="btnGroupDrop2">
+                <p class='ms-3 fw-bold mb-2 text-primary' style="font-size: .7rem;">PRO VERSION</p>
+                <a class="dropdown-item" href="#">Classes</a>
+              </div>
+            </div>
+          </li>
+          <hr>
+          <li class="list-group-item d-flex justify-content-between align-items-start border-0">
+            <%= link_to destroy_user_session_path, method: :delete, class: 'dropdown-item ms-2 text-primary', data: { turbo_method: :delete } do %>
+              <%= bootstrap_icon 'box-arrow-right', width: '1.2rem', height: '1.2rem' %>
+              <span class="ms-2">Logout</span>
             <% end %>
-            </li>
-          </ul>
-        </li>
-      </ul>
+          </li>
+        </ul>
+      </div>
     </div>
+
+    <form class="d-flex flex-row d-lg-none">
+      <input class="form-control me-2" type="search" placeholder="Search for..." aria-label="Search">
+      <button class="btn btn-primary" type="submit">
+        <%= bootstrap_icon 'search', width: '1.2rem', height: '1.2rem', class: 'text-white'%>
+      </button>
+    </form>
+
+    <a href="#" class="navbar-toggler border-0" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+      <img src="https://avatars.githubusercontent.com/u/121840912?v=4" alt="mdo" width="30" height="30" class="rounded-circle">
+    </a>
   </div>
 </nav>
