@@ -39,10 +39,10 @@
             </a>
             <ul class="dropdown-menu dropdown-menu-end text-small shadow" aria-labelledby="navbarDropdown">
               <li>
-                <a class="dropdown-item" href="#">
-                  <%= bootstrap_icon 'person', width: '1.2rem', height: '1.2rem'%>
-                  Profile
-                </a>
+                <%= link_to profile_path, class: "dropdown-item" do %>
+                  <%= bootstrap_icon 'person', width: '1.2rem', height: '1.2rem' %>
+                    Profile
+                <% end %>
               </li>
               <li>
                 <a class="dropdown-item" href="#">
@@ -71,15 +71,15 @@
           <li class="list-group-item d-flex justify-content-between align-items-start border-0">
             <div class="ms-2 me-auto d-flex align-items-center">
               <div class="div-emoji">😴</div>
-              <div class="fw-bold ms-2 text-dark">Status</div>
+              <div class="fw-bold ms-2 text-dark"><%= current_user.status %></div>
             </div>
           </li>
           <hr>
           <li class="list-group-item d-flex justify-content-between align-items-start border-0">
-            <div class="ms-2 me-auto d-flex align-items-center">
-              <%= bootstrap_icon 'person-fill', width: '1.2rem', height: '1.2rem', class: 'text-primary'%>
+            <%= link_to profile_path, class: "ms-2 me-auto d-flex align-items-center text-decoration-none" do %>
+              <%= bootstrap_icon 'person-fill', width: '1.2rem', height: '1.2rem', class: 'text-primary' %>
               <div class="fw-normal ms-2 text-dark">Profile</div>
-            </div>
+            <% end %>
           </li>
            <li class="list-group-item d-flex justify-content-between align-items-start border-0">
             <div class="ms-2 me-auto d-flex align-items-center">
@@ -105,10 +105,10 @@
           </li>
           <hr>
           <li class="list-group-item d-flex justify-content-between align-items-start border-0">
-            <div class="ms-2 me-auto d-flex align-items-center">
-              <%= bootstrap_icon 'speedometer2', width: '1.2rem', height: '1.2rem', class: 'text-primary'%>
-              <div class="fw-normal ms-2 text-dark">Dashboard</div>
-            </div>
+            <%= link_to root_path, class:"ms-2 me-auto d-flex align-items-center fw-normal text-dark text-decoration-none" do%>
+              <%= bootstrap_icon 'speedometer2', width: '1.2rem', height: '1.2rem', class: 'text-primary' %>
+              <span class="fw-normal ms-2 text-dark"> Dashboard </span>
+            <% end %>
           </li>
           <li class="list-group-item d-flex justify-content-between align-items-start border-0">
             <div class="btn-group dropright" role="group" aria-label="Button group with nested dropdown ms-4">
