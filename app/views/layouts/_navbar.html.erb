@@ -118,8 +118,10 @@
               </a>
               <div class="dropdown-menu" aria-labelledby="btnGroupDrop2">
                 <p class='ms-3 fw-bold mb-2 text-primary' style="font-size: .7rem;">START</p>
-                <a class="dropdown-item" href="#">Create Classes/Metric Manager</a>
-                <a class="dropdown-item" href="#">My Classes</a>
+                <%= link_to "Create Classes/Metric Manager", new_class_subject_path, class: "dropdown-item" %>
+                <%= link_to class_subjects_path, class: "text-decoration-none dropdown-item" do %>
+                  My Classes
+                <% end %>
               </div>
             </div>
           </li>

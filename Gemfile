@@ -78,3 +78,6 @@ gem 'bootstrap-icons-helper'
 
 # Account Authentication
 gem "devise", "~> 4.9"
+
+# Faker
+gem 'faker'

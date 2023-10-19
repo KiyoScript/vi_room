@@ -10,9 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_21_110915) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_04_053305) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "class_subjects", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "code", limit: 30
+    t.string "name"
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["code"], name: "index_class_subjects_on_code", unique: true
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -24,6 +34,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_21_110915) do
     t.datetime "updated_at", null: false
     t.string "firstname"
     t.string "lastname"
+    t.string "status"
+    t.string "phone_number"
+    t.string "section_program_year"
+    t.string "role"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
