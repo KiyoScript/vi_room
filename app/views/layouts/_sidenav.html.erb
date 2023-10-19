@@ -2,7 +2,9 @@
   <a class="navbar-brand mt-2 text-primary text-center" href="#">LOGO</a>
   <hr class='mt-2'>
   <div class="col-12 text-center">
-    <p class='fw-normal mb-0 text-primary'><%= bootstrap_icon 'speedometer2', width: '1rem', height: '1rem'%><span class='d-block text-white' style="font-size: .6rem;">Dashboard</span></p>
+    <%= link_to  root_path, class:'text-decoration-none' do %>
+      <p class='fw-normal mb-0 text-primary'><%= bootstrap_icon 'speedometer2', width: '1rem', height: '1rem'%><span class='d-block text-white' style="font-size: .6rem;">Dashboard</span></p>
+    <% end %>
   </div>
   <hr class='mt-2'>
   <div class="col-12  text-center">
@@ -15,8 +17,10 @@
       </a>
       <div class="dropdown-menu" aria-labelledby="btnGroupDrop2">
         <p class='ms-3 fw-bold mb-2 text-primary' style="font-size: .7rem;">START</p>
-        <a class="dropdown-item" href="#">Create Classes/Metric Manager</a>
-        <a class="dropdown-item" href="#">My Classes</a>
+        <%= link_to "Create Classes/Metric Manager", new_class_subject_path, class: "dropdown-item" %>
+        <%= link_to class_subjects_path, class: "text-decoration-none dropdown-item" do %>
+          My Classes
+        <% end %>
       </div>
     </div>
     <p class='fw-normal mb-0 text-white' style='font-size: .6rem'>Classes</p>

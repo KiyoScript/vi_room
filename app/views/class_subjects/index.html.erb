@@ -1,0 +1,59 @@
+<div class="container-fluid p-4">
+  <div class="col-12 mb-2 alert alert-info">
+    Joined
+  </div>
+  <div class="col-12 mb-2 d-flex justify-content-start align-items-center">
+    <div class="card border-0 custom-shadow-primary mb-4" style="width: 30rem">
+      <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+        <a href="#" class="text-decoration-none">
+          <h6 class="m-0 fw-bold text-primary">IT 313 3A</h6>
+        </a>
+        <div class="dropdown">
+          <button class="btn btn-link" type="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <%= bootstrap_icon 'three-dots-vertical'%>
+          </button>
+          <div class="dropdown-menu" aria-labelledby="btnGroupDrop2">
+          <p class='ms-3 fw-bold mb-2 text-primary' style="font-size: .7rem;">ACTION</p>
+          <%= link_to class_subjects_path, class: "text-decoration-none dropdown-item" do %>
+            Leave the class
+          <% end %>
+        </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="card-subtitle mb-2 fw-bold">
+              Metrics
+            </div>
+            <div class="row">
+              <div class="col-lg-6">Attendance : <span style="float:right;">10%</span></div>
+              <div class="col-lg-6">Activities : <span style="float:right;">15%</span></div>
+              <div class="col-lg-6">Project : <span style="float:right;">25%</span></div>
+              <div class="col-lg-6">Midterm : <span style="float:right;">25%</span></div>
+              <div class="col-lg-6">Finals : <span style="float:right;">25%</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <div class="row">
+          <span>Subject Code:
+            <strong>
+              <span>cd9bef</span>
+              <button class="btn btn-default">
+                <%= bootstrap_icon 'pencil-square', width: '1.2rem', height: '1.2rem', class: 'text-primary' %>
+              </button>
+            </strong>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-12 mb-2 alert alert-info">
+    Owned
+  </div>
+  <div class="col-12 mb-2 d-flex align-items-center gap-2 flex-wrap custom-scrollbar">
+    <%= render partial: 'class_subjects/class_subject', collection: @class_subjects %>
+  </div>
+</div>

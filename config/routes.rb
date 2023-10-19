@@ -8,5 +8,6 @@ Rails.application.routes.draw do
   }
 
   root "dashboard#index"
+  resources :class_subjects
   resource :profile
 end
